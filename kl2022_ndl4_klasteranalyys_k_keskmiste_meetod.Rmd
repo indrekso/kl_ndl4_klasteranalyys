@@ -257,7 +257,7 @@ ggplot(means2, aes(x = clust4v6, y = value, group = variable, fill = variable)) 
   labs(fill = "Rahulolu")
 ```
 
-Üldine rahulolu eluga on üle skaala keskpunkti kõigis klastrites, sellegipoolest on kõigil klastritel oma eripära. Selgelt eristuvad esimene ja teine klaster (NB! klastrite järjekorranumbrid võivad teil erineda), kus rahulolu on kõigis dimensioonides vastavalt madalaim või kõrgeim. Omapärane ja huvitavam on kolmas klaster, kus eri dimensioonides on rahulolu gruppide lõikes kolmandal kohal, aga rahulolu haridus- ja tervishoiusüsteemiga on peaaegu kõrgeim. Seega võib öelda, et esineb grupp, kus rahulolu haridus- ja tervishoiusüsteemiga hinnatakse kõrgemalt, hoolimata madalamast rahulolust muudes eluvaldkondades.
+Üldine rahulolu eluga on üle skaala keskpunkti kõigis klastrites, sellegipoolest on kõigil klastritel oma eripära. Selgelt kaks klastrit, kus rahulolu on kõigis dimensioonides madalaim või kõrgeim (NB! Kui teete k-keskmiste klasterduse läbi mitu korda, siis näete, et igal korral klasterduvad ühte klastrisse samad indiviidid, aga klastrite järjekorranumbrid võivad olla iga kord erinevad, seetõttu ei viita ma siinkohal klastreid tõlgendades ka klastrite numbritele). Omapärane ja huvitavam on üks klaster, kus eri dimensioonides on rahulolu gruppide lõikes kolmandal kohal, aga rahulolu haridus- ja tervishoiusüsteemiga on peaaegu kõrgeim. Seega võib öelda, et esineb grupp, kus rahulolu haridus- ja tervishoiusüsteemiga hinnatakse kõrgemalt, hoolimata madalamast rahulolust muudes eluvaldkondades.
 
 Kas klastrid erinevad kuidagi soolise tasakaalu või haridustee pikkuse poolest?
 
@@ -270,7 +270,7 @@ means_ge <- stf_f %>%
   )
 ```
 
-Arvutasime siin keskmise soo tunnusest, mis võib tekitada k?simusi - kuidas võiks olla õigustatud nominaaltunnusest keskmise arvutamine? Antud juhul on tegu kaheväärtuselise tunnusega, seega juhul, kui ühe kategooria kood on null ja# teise oma üks, siis saame keskmise arvutamisel teise kategooria osakaalu (sisuliselt naiste protsendi kõigist  indiviididest).
+Arvutasime siin keskmise soo tunnusest, mis võib tekitada küsimusi - kuidas võiks olla õigustatud nominaaltunnusest keskmise arvutamine? Antud juhul on tegu kaheväärtuselise tunnusega, seega juhul, kui ühe kategooria kood on null ja teise oma üks, siis saame keskmise arvutamisel teise kategooria osakaalu (sisuliselt naiste protsendi kõigist  indiviididest).
 
 ```{r}
 ggplot(means_ge, aes(x = m_eduyrs, y = m_gndr, colour = clust4v6, size = 100)) +
@@ -296,14 +296,18 @@ remotes::install_github("Van1yu3/SWKM")
 library(SWKM)
 ```
 
-Kui R ütleb eelviimase käsu peale `Skipping install of 'SWKM' from a github remote, the SHA1 (b8763db3) has not changed since last install. Use ``force = TRUE`` to force installation`, siis võib proovida veel
+Kui R ütleb eelviimase käsu peale `Skipping install of 'SWKM' from a github remote, the SHA1 (b8763db3) has not changed since last install.`
+
+`Use ``force = TRUE`` to force installation`, 
+
+siis võib proovida veel:
 
 ```{r eval = FALSE}
 remotes::install_github("Van1yu3/SWKM", force = T)
 library(SWKM)
 ```
 
-Teeme eelnevalt tehtud klasterduse näite rahulolu tunnuste ja kolme klastriga läbi nüüd ka kaalutud andmetega, enne  tuleb andmestik muuta maatriksiks nagu `kmeans.weight` nõuab. 
+Teeme eelnevalt tehtud klasterduse näite rahulolu tunnuste ja kolme klastriga läbi nüüd ka kaalutud andmetega, enne  tuleb andmestik muuta maatriksiks nagu `kmeans.weight` nõuab. Järgnevate käskude puhul ei näe te html-failis väljundit ehk käskluste tulemusi, jätsin need välja, sest millegipärast andsid nad html-faili loomisel veateate; samas Rmd-failis käske käima lastes nad minul töötasid, nii et põhimõtteliselt peaks kood töötama.
 
 ```{r eval = FALSE}
 stf_f <- as.matrix(stf_f)
