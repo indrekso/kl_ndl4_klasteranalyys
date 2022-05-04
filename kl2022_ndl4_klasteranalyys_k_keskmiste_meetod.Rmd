@@ -22,6 +22,10 @@ Laeme sisse vajalikud paketid.
 library(essurvey)
 library(dplyr)
 library(descr)
+library(reshape2)
+library(ggplot2)
+library(factoextra)
+library(corrplot)
 ```
 
 Alljärgnevas koodijupis sisestage funktsiooni `set_email` puhul jutumärkide vahele **oma** email, millega olete [Euroopa Sotsiaaluuringu lehel](http://www.europeansocialsurvey.org) registreerunud ESS andmete kasutajaks.
