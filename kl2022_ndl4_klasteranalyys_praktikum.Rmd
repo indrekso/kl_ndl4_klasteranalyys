@@ -16,7 +16,6 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 Laeme kõigepealt alla vajalikud paketid. Tavapraktika on kõigi tööks vajalike pakettide allalaadimine ära teha faili alguses, et hiljem ei tekiks pakettide laadimisega probleeme. Toon siiski ka hiljem koodis konkreetsete funktsioonide kasutamiseks vajaliku paketi laadimise välja, et oleks täpsemalt näha, milliste funktsioonide jaoks millist paketti on vaja.
 
 ```{r}
-library(essurvey)
 library(dplyr)
 library(descr)
 ```
